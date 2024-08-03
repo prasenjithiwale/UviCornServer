@@ -11,7 +11,7 @@ from fastai.vision import *
 model_file_url = 'https://therma.blob.core.windows.net/therma/model.pkl'
 model_file_name = 'model.pkl'
 classes = ['dog', 'fox']
-path = Path(__file__).parent
+path = Path(__file__).parent / 'app'
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
@@ -57,5 +57,5 @@ async def analyze(request):
     
 
 if __name__ == '__main__':
-    if 'serve' in sys.argv: uvicorn.run(app, host='0.0.0.0', port=8080)
+    if 'serve' in sys.argv: uvicorn.run(app, host='0.0.0.0', port=80)
 
